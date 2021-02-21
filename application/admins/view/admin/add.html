@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加管理员</title>
+    <link rel="stylesheet" type="text/css" href="__STATIC__/plugins/layui/css/layui.css">
+    <script type="text/javascript" src="__STATIC__/plugins/layui/layui.js"></script>
+    <style>
+        body{padding: 10px;}
+    </style>
+</head>
+<body>
+    <div class="layui-form">
+        <div class="layui-form-item">
+            <label class="layui-form-label">用户名</label>
+            <div class="layui-input-inline">
+                <input type="text"  class="layui-input" />
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">角&nbsp;&nbsp;&nbsp;&nbsp;色</label>
+            <div class="layui-input-inline">
+                <select>
+                    <option></option>
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">密&nbsp;&nbsp;&nbsp;&nbsp;码</label>
+            <div class="layui-input-inline">
+                <input type="text"  class="layui-input" />
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">姓&nbsp;&nbsp;&nbsp;&nbsp;名</label>
+            <div class="layui-input-inline">
+                <input type="text"  class="layui-input" />
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">状&nbsp;&nbsp;&nbsp;&nbsp;态</label>
+            <div class="layui-input-inline">
+                <input type="checkbox" lay-skin="primary" title="禁用" />
+            </div>
+        </div>
+    </div>
+
+    <script>
+        layui.use(['layer', 'form'], function() {
+            form = layui.form;
+            layer = layui.layer;
+        })
+    </script>
+</body>
+</html>

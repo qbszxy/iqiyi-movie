@@ -15,6 +15,6 @@ class BaseAdmin extends Controller
             exit;
         }
         // 判断用户是否有权限
-
+        $this->db = new Sysdb;
     }
 }

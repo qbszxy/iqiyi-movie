@@ -3,6 +3,10 @@ namespace app\admins\controller;
 use think\Controller;
 use Util\data\Sysdb;
 
+/**
+ * Class Home
+ * 后台首页
+ */
 class Home extends BaseAdmin
 {
     public function index(){

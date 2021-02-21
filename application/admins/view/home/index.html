@@ -11,6 +11,7 @@
         .userinfo{float: right;margin-right: 20px;}
         .userinfo a{color: #fff;}
         .menu{width: 200px;background: #333744;position: absolute;}
+        .main{position: absolute; left: 200px; right: 0;}
 
         .layui-collapse{border: none;}
         .layui-colla-item{border-top: none;}
@@ -28,21 +29,20 @@
     <div class="menu" id="menu">
         <div class="layui-collapse" lay-accordion>
             <div class="layui-colla-item">
-                <h2 class="layui-colla-title">杜甫</h2>
+                <h2 class="layui-colla-title">管理员管理</h2>
                 <div class="layui-colla-content layui-show">
                     <ul class="layui-nav layui-nav-tree" lay-filter="test">
-                        <li class="layui-nav-item"><a href="">产品</a></li>
-                        <li class="layui-nav-item"><a href="">大数据</a></li>
+                        <li class="layui-nav-item"><a href="javascript:;" onclick="menuFire(this)" src="/admins.php/admins/Admin/index">管理员列表</a></li>
                     </ul>
                 </div>
             </div>
             <div class="layui-colla-item">
-                <h2 class="layui-colla-title">李清照</h2>
-                <div class="layui-colla-content">内容区域</div>
+                <h2 class="layui-colla-title">权限管理</h2>
+                <div class="layui-colla-content"></div>
             </div>
             <div class="layui-colla-item">
-                <h2 class="layui-colla-title">鲁迅</h2>
-                <div class="layui-colla-content">内容区域</div>
+                <h2 class="layui-colla-title">系统设置</h2>
+                <div class="layui-colla-content"></div>
             </div>
         </div>
     </div>
@@ -52,10 +52,10 @@
     </div>
 
     <script>
-        layui.use('element', function(){
+        layui.use(['element'], function(){
             var element = layui.element;
             $ = layui.jquery;
-            resetMenuHeight()
+            resetMenuHeight();
         });
 
         // 重新设置菜单容器高度
@@ -68,6 +68,14 @@
         function resetMainHeight(obj) {
             var height = parent.document.documentElement.clientHeight - 53;
             $(obj).parent('div').height(height);
+        }
+
+        // 菜单点击事件
+        function menuFire(obj) {
+            // 获取url
+            var src = $(obj).attr('src');
+            // 设置iframe的src
+            $('iframe').attr('src', src);
         }
 
     </script>
