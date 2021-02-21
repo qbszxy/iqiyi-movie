@@ -61,4 +61,10 @@ class Sysdb{
         $res = Db::name($this->table)->where($this->where)->update($data);
         return $res;
     }
+
+    // 删除
+    public function delete(){
+        $res = Db::name($this->table)->where($this->where)->delete();
+        return $res;
+    }
 }

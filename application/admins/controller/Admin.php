@@ -35,7 +35,7 @@ class Admin extends BaseAdmin{
         $data['gid'] = (int)input('post.gid');
         $password = trim(input('post.pwd'));
         $data['truename'] = trim(input('post.truename'));
-        $data['status']  = (int)(input('post.statu'));
+        $data['status']  = (int)(input('post.status'));
 
         if(!$data['username']){
             exit(json_encode(array('code'=>1,'msg'=>'用户名不能为空')));
@@ -54,6 +54,8 @@ class Admin extends BaseAdmin{
             // 密码处理
             $data['password'] = md5($data['username'].$password);
         }
+
+        $res = true;
         if($id==0){
             // 检查用户是否已存在
             $item = $this->db->table('admins')->where(array('username'=>$data['username']))->item();
@@ -64,11 +66,21 @@ class Admin extends BaseAdmin{
             // 保存用户
             $res = $this->db->table('admins')->insert($data);
         }else{
-            $res = $this->db->table('admins')->where(array('id'=>$id))->update($data);
+            $this->db->table('admins')->where(array('id'=>$id))->update($data);
         }
         if(!$res){
             exit(json_encode(array('code'=>1,'msg'=>'保存失败')));
         }
         exit(json_encode(array('code'=>0,'msg'=>'保存成功')));
+    }
+
+    // 删除管理员
+    public function delete(){
+        $id = (int)input('post.id');
+        $res = $this->db->table('admins')->where(array('id'=>$id))->delete();
+        if(!$res){
+            exit(json_encode(array('code'=>1,'msg'=>'删除失败')));
+        }
+        exit(json_encode(array('code'=>0,'msg'=>'删除成功')));
     }
 }
