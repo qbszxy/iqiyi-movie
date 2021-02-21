@@ -34,7 +34,7 @@ class Account extends Controller
         if(!$admin){
             exit(json_encode(array('code'=>1,'msg'=>'用户不存在')));
         }
-        if(md5($pwd) != $admin['password']){
+        if(md5($username.$pwd) != $admin['password']){
             var_dump('密码验证成功');
             exit(json_encode(array('code'=>1,'msg'=>'密码错误')));
         }
